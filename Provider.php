@@ -23,7 +23,7 @@ class Provider extends AbstractProvider
      */
     public static function additionalConfigKeys()
     {
-        return ['base_url', 'realms'];
+        return ['base_url', 'realms', 'internal_ingress_server_name'];
     }
 
     protected function getBaseUrl()
@@ -52,7 +52,7 @@ class Provider extends AbstractProvider
      */
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get($this->getBaseUrl().'/protocol/openid-connect/userinfo', [
+        $response = $this->getHttpClient()->get(str_replace($_SERVER['SERVER_NAME'],$this->getConfig('internal_ingress_server_name'),$this->getBaseUrl()).'/protocol/openid-connect/userinfo', [
             RequestOptions::HEADERS => [
                 'Authorization' => 'Bearer '.$token,
             ],
