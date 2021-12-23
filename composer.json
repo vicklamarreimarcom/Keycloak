@@ -1,5 +1,5 @@
 {
-    "name": "socialiteproviders/keycloak-ingress",
+    "name": "imarcom/keycloak-ingress",
     "description": "Keycloak OAuth2 Provider for Laravel Socialite",
     "keywords": [
         "keycloak",
