@@ -18,7 +18,7 @@
     "require": {
         "php": "^7.2 || ^8.0",
         "ext-json": "*",
-        "socialiteproviders/manager-ingress": "4.0.2"
+        "v-imarcom/manager-ingress": "4.0.2"
     },
     "autoload": {
         "psr-4": {
