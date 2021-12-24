@@ -52,7 +52,7 @@ class Provider extends AbstractProvider
      */
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get(str_replace($_SERVER['SERVER_NAME'],$this->getConfig('internal_ingress_server_name'),$this->getBaseUrl()).'/protocol/openid-connect/userinfo', [
+        $response = $this->getHttpClient()->get(str_replace($_SERVER['HTTP_HOST'],$this->getConfig('internal_ingress_server_name'),$this->getBaseUrl()).'/protocol/openid-connect/userinfo', [
             RequestOptions::HEADERS => [
                 'Authorization' => 'Bearer '.$token,
             ],
